@@ -43,7 +43,7 @@ Route::post('oauth/access_token', function() {
 
 
 
-Route::group(array('prefix'=>'api/v1', 'before' => 'oauth'),function(){
+Route::group(array('prefix'=>'api/v1','before' => 'oauth'),function(){
 		Route::get('/portfolio', array('uses'=>'PortfolioController@getall'));
 		
 		Route::get('/autor/{param?}', 
