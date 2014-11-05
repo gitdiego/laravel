@@ -24,18 +24,6 @@ Route::get('/test/{id}',function($id){
 
 Route::get('llamando/al/controlador/{param?}','HomeController@mimetodo');
 
-/*Route::group(array('prefix' => 'api/v1/auth/'), function() {  
-    Route::post('/login', array('uses' => 'AuthController@login' ));  
-});*/
-
-/*Route::group(array('prefix'=>'api/v1', 'before' => 'auth.basic'),function(){
-		Route::get('/portfolio', array('uses'=>'PortfolioController@getall'));
-
-		Route::get('/otroejemplo',function(){
-				return 'hola';
-		});
-});*/
-
 
 Route::post('oauth/access_token', function() {
     return Response::json(Authorizer::issueAccessToken());
@@ -51,7 +39,7 @@ Route::group(array('prefix'=>'api/v1','before' => 'oauth'),function(){
 
 		Route::get('/recurso/{param?}', array('uses'=>'RecursoController@getall'));
 
-		//Route::get('autor.recurso', array('uses'=>'AutorRecursoController@getall'));
+		
 		Route::resource('autor.recurso', 'AutorRecursoController',array('only' => array('index', 'show','store','update','destroy')));
 		//Route::resource('recurso.materia', 'AutorRecursoController@getRecursoMateria');
 		//Route::resource('autor.recurso.materia', 'AutorRecursoController@getAutorRecursoMateria');
